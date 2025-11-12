@@ -1,0 +1,16 @@
+{
+  "name": "single-spa-demo",
+  "version": "1.0.0",
+  "description": "A demo single-spa application with React microfrontends",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "single-spa",
+    "microfrontends",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT"
+}

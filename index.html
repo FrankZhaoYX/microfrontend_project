@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single-SPA Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    }
+    #single-spa-application\:navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+  </style>
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/home.css">
+  <link rel="stylesheet" href="/dashboard.css">
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.5/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js",
+        "react-dom/client": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js",
+        "@demo/root-config": "/root-config.js",
+        "@demo/navbar": "/navbar.js",
+        "@demo/home": "/home.js",
+        "@demo/dashboard": "/dashboard.js"
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.1/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.1/dist/extras/amd.min.js"></script>
+</head>
+<body>
+  <script>
+    System.import('@demo/root-config');
+  </script>
+  <div id="single-spa-application:navbar"></div>
+  <div id="single-spa-application:home"></div>
+  <div id="single-spa-application:dashboard"></div>
+</body>
+</html>
