@@ -48,6 +48,44 @@
   margin: 1rem 0;
 }
 
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.home-card h2 {
+  margin-top: 0;
+  color: #282c34;
+}
+
+.home-button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.home-button-secondary {
+  background-color: #f0f0f0;
+  color: #282c34;
+}
+
+.home-button-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.home-list {
+  text-align: left;
+  padding-left: 1.5rem;
+  line-height: 2;
+}
+
+.home-list li {
+  color: #555;
+}
+
 .home-footer {
   margin-top: 3rem;
   color: #666;

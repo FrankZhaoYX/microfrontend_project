@@ -3,29 +3,54 @@ System.register(['react', 'react-dom/client'], function (_export, _context) {
 
   var React, ReactDOM;
   
-  function Home() {
+  const Home = () => {
     const [count, setCount] = React.useState(0);
 
+    const incrementCounter = () => {
+      setCount(prevCount => prevCount + 1);
+    };
+
+    const resetCounter = () => {
+      setCount(0);
+    };
+
     return React.createElement('div', { className: 'home-container' },
-      React.createElement('h1', { className: 'home-title' }, 'Welcome to Single-SPA! 🚀'),
+      React.createElement('h1', { className: 'home-title' }, 'Welcome to Microfrontend Architecture'),
       React.createElement('p', { className: 'home-description' },
-        'This is a micro frontend architecture demo using single-spa and React. ',
-        'Each section you see (navbar, home, dashboard) is an independent React application ',
-        'that can be developed, tested, and deployed separately.'
+        'This application demonstrates a modern micro frontend architecture using Single-SPA and React. ',
+        'Each section (navbar, home, dashboard) is an independent React application that can be developed, ',
+        'tested, and deployed separately.'
       ),
-      React.createElement('div', { className: 'home-card' },
-        React.createElement('h2', null, 'Interactive Counter Demo'),
-        React.createElement('div', { className: 'home-counter' }, `Count: ${count}`),
-        React.createElement('button', {
-          className: 'home-button',
-          onClick: () => setCount(count + 1)
-        }, 'Increment')
+      React.createElement('div', { className: 'home-features' },
+        React.createElement('div', { className: 'home-card' },
+          React.createElement('h2', null, 'Interactive Counter'),
+          React.createElement('div', { className: 'home-counter' }, `Count: ${count}`),
+          React.createElement('div', { className: 'home-button-group' },
+            React.createElement('button', {
+              className: 'home-button',
+              onClick: incrementCounter
+            }, 'Increment'),
+            React.createElement('button', {
+              className: 'home-button home-button-secondary',
+              onClick: resetCounter
+            }, 'Reset')
+          )
+        ),
+        React.createElement('div', { className: 'home-card' },
+          React.createElement('h2', null, 'Key Features'),
+          React.createElement('ul', { className: 'home-list' },
+            React.createElement('li', null, 'Independent deployments for each microfrontend'),
+            React.createElement('li', null, 'Framework agnostic architecture'),
+            React.createElement('li', null, 'Shared navigation and routing'),
+            React.createElement('li', null, 'Modern ES6+ JavaScript')
+          )
+        )
       ),
       React.createElement('div', { className: 'home-footer' },
-        React.createElement('p', null, '👆 Try clicking the Dashboard link in the navbar to see another microfrontend!')
+        React.createElement('p', null, 'Try clicking the Dashboard link in the navbar to see another microfrontend!')
       )
     );
-  }
+  };
 
   return {
     setters: [

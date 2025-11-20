@@ -41,6 +41,16 @@ System.register(['single-spa'], function (_export, _context) {
         }
       });
 
+      // Register jellyfin - active at /jellyfin path
+      registerApplication({
+        name: '@demo/jellyfin',
+        app: () => System.import('@demo/jellyfin'),
+        activeWhen: location => location.pathname.startsWith('/jellyfin'),
+        customProps: {
+          domElement: document.getElementById('single-spa-application:jellyfin')
+        }
+      });
+
       // Start single-spa
       start({
         urlRerouteOnly: true,

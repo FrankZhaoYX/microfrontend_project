@@ -36,3 +36,26 @@
 .navbar-button:hover {
   background-color: #3a3f4b;
 }
+
+.navbar-button.active {
+  background-color: #4a90e2;
+  font-weight: bold;
+}
+
+.navbar-button-jellyfin {
+  background: linear-gradient(135deg, #aa5cc3 0%, #00a4dc 100%);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-button-jellyfin:hover {
+  background: linear-gradient(135deg, #9a4cb3 0%, #0094cc 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(170, 92, 195, 0.4);
+}
+
+.navbar-button-jellyfin.active {
+  background: linear-gradient(135deg, #9a4cb3 0%, #0094cc 100%);
+  box-shadow: 0 4px 12px rgba(170, 92, 195, 0.6);
+  font-weight: bold;
+}

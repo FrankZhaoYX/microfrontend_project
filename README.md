@@ -1,15 +1,16 @@
-# Single-SPA Demo Application
+# Microfrontend Application
 
-A demonstration of micro frontend architecture using single-spa with React and vanilla JavaScript.
+A modern micro frontend application using Single-SPA with React and ES6 JavaScript.
 
 ## Architecture
 
-This demo consists of:
+This application consists of:
 
-1. **Root Config** (`root-config.js`) - Orchestrates all microfrontends
-2. **Navbar Microfrontend** (`navbar.js`) - Navigation bar (always active)
-3. **Home Microfrontend** (`home.js`) - Home page with counter demo
-4. **Dashboard Microfrontend** (`dashboard.js`) - Task management dashboard
+1. **Root Config** ([root-config.js](root-config.js)) - Orchestrates all microfrontends
+2. **Navbar Microfrontend** ([navbar.js](navbar.js)) - Navigation bar with Home, Dashboard, and Jellyfin buttons (always active)
+3. **Home Microfrontend** ([home.js](home.js)) - Home page with interactive features
+4. **Dashboard Microfrontend** ([dashboard.js](dashboard.js)) - Task management dashboard
+5. **Jellyfin Microfrontend** ([jellyfin.js](jellyfin.js)) - Embedded Jellyfin Media Server in iframe
 
 ## Key Features
 
@@ -17,16 +18,22 @@ This demo consists of:
 - **Route-based Activation**: Microfrontends mount/unmount based on URL paths
 - **Shared Dependencies**: React and ReactDOM loaded via CDN using SystemJS
 - **No Build Process**: Uses SystemJS format for immediate browser execution
+- **Embedded Jellyfin**: Full Jellyfin Media Server integrated as a microfrontend (http://192.168.50.124:8096/)
 
 ## Project Structure
 
 ```
-single-spa-demo/
+microfrontend_project/
 ├── index.html          # Main HTML file with SystemJS configuration
 ├── root-config.js      # Single-spa root configuration
 ├── navbar.js           # Navbar microfrontend
+├── navbar.css          # Navbar styles
 ├── home.js             # Home page microfrontend
+├── home.css            # Home page styles
 ├── dashboard.js        # Dashboard microfrontend
+├── dashboard.css       # Dashboard styles
+├── jellyfin.js         # Jellyfin microfrontend
+├── jellyfin.css        # Jellyfin styles
 ├── server.js           # Simple HTTP server
 ├── package.json        # Package configuration
 └── README.md           # This file
@@ -35,9 +42,9 @@ single-spa-demo/
 ## How It Works
 
 ### 1. SystemJS Import Maps
-The `index.html` file defines import maps that tell the browser where to find:
+The [index.html](index.html) file defines import maps that tell the browser where to find:
 - External dependencies (React, ReactDOM, single-spa)
-- Internal microfrontends (navbar, home, dashboard)
+- Internal microfrontends (navbar, home, dashboard, jellyfin)
 
 ### 2. Single-SPA Registration
 The root config registers each microfrontend with:
@@ -63,10 +70,10 @@ Each microfrontend exports three functions:
 
 ```bash
 # Navigate to the project directory
-cd single-spa-demo
+cd microfrontend_project
 
 # Start the server
-node server.js
+npm start
 
 # Open your browser to http://localhost:8080
 ```
@@ -93,8 +100,25 @@ npx http-server -p 8080
 
 1. Start the server using one of the methods above
 2. Navigate to `http://localhost:8080`
-3. Click navigation links to switch between Home and Dashboard
+3. Click navigation buttons to switch between Home, Dashboard, and Jellyfin
 4. Each page loads its respective microfrontend dynamically
+5. Try the interactive counter on the Home page
+6. Explore the task dashboard to see another microfrontend in action
+7. Click the **Jellyfin** button to view your media server embedded in the app
+
+### Jellyfin Microfrontend
+
+The Jellyfin microfrontend embeds your Jellyfin Media Server (`http://192.168.50.124:8096/`) directly into the application using an iframe. Features include:
+
+- **Full Jellyfin Interface**: Complete media server functionality within the app
+- **Responsive iframe**: Takes full viewport height for optimal viewing
+- **Control buttons**:
+  - **Fullscreen Mode**: Expands Jellyfin to fill your entire screen
+  - **New Tab**: Opens Jellyfin in a separate browser tab if preferred
+- **Loading indicator**: Shows spinner while Jellyfin loads
+- **Purple-to-blue gradient header**: Matches Jellyfin's brand colors
+
+To change the Jellyfin server URL, edit the `src` attribute in the iframe within [jellyfin.js](jellyfin.js:58).
 
 ## Understanding the Code
 

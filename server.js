@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
   let filePath = '.' + req.url;
   if (filePath === './') {
     filePath = './index.html';
-  } else if (req.url === '/home' || req.url === '/dashboard') {
+  } else if (req.url === '/home' || req.url === '/dashboard' || req.url === '/jellyfin') {
     filePath = './index.html';
   }
 

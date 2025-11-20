@@ -1,16 +1,21 @@
 {
-  "name": "single-spa-demo",
+  "name": "microfrontend-app",
   "version": "1.0.0",
-  "description": "A demo single-spa application with React microfrontends",
+  "description": "A Single-SPA microfrontend application with React and ES6",
   "main": "index.html",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": [
     "single-spa",
     "microfrontends",
-    "react"
+    "react",
+    "es6",
+    "javascript"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
 }
